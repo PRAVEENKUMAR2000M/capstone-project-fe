@@ -1,0 +1,198 @@
+.container {
+    border: 5px solid #000000;
+    font-weight: bold;
+    font-size: 20px;
+    width: 150px;
+    margin-left: 50px;
+    margin-top: 10px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+}
+
+.col-md-1 {
+    margin-top: 100px;
+    margin-left: 250px;
+    font-weight: bold;
+    width: 200px;
+}
+
+.col-md-2 {
+    margin-top: 3px;
+    margin-left: 200px;
+    font-weight: bold;
+    width: 200px;
+}
+
+.col-md-3 {
+    margin-top: 3px;
+    margin-left: 250px;
+    font-weight: bold;
+    width: 200px;
+
+}
+
+.col-md-4 {
+    margin-top: 3px;
+    margin-left: -50px;
+    font-weight: bold;
+    width: 200px;
+}
+
+.input-3 {
+    margin-top: 10px;
+    margin-left: 200px;
+    font-weight: bold;
+}
+
+.col-md-5 {
+    width: 70px;
+    margin-top: 10px;
+    margin-left: 250px;
+    font-weight: bold;
+    width: 47ch;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(93, 0, 255);
+    color: aliceblue;
+}
+
+
+.lb-1 {
+    margin-top: 50px;
+    margin-left: 250px;
+}
+
+.lb-2 {
+    margin-left: 390px;
+    margin-top: -40px;
+}
+
+input[type=email]:focus{
+    width: 50ch;
+        height: 40px;
+        border-radius: 5px;
+        background-color: #f1f1f1;
+}
+
+input[type=password] {
+    width: 50ch;
+        height: 40px;
+        border-radius: 5px;
+        background-color: #f1f1f1;
+}
+
+
+input[type=Email]
+{
+    width: 50ch;
+    padding: 15px;
+    height: 40px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    margin-left: 50px;
+    
+}
+
+input[type=text]{
+    width: 50ch;
+        padding: 15px;
+        height: 40px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+        margin-left: 50px;
+}
+
+input[type=password]{
+    width: 50ch;
+        padding: 15px;
+        height: 40px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+        margin-left: 50px;
+}
+
+.lb-signup{
+    margin-left: 50px;
+}
+
+
+.heading{
+    margin-left: 50px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box
+}
+
+input[type=username]:focus {
+    width: 10ch;
+}
+
+input[type=password]:focus {
+    background-color: #ddd;
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+
+
+button:hover {
+    opacity: 1;
+}
+
+.cancelbtn {
+    padding: 10px;
+    background-color: #f44336;
+    width: 200px;
+
+    background-color:red;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 25%;
+        opacity: 0.9;
+        margin-left: 50px;
+}
+
+
+.signupbtn {
+padding: 10px;
+    background-color: green;
+    width: 200px;
+    background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 25%;
+        opacity: 0.9;
+        margin-left: 50px;
+}
+
+.container {
+    padding: 16px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
