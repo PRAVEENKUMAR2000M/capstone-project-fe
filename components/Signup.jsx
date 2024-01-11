@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import authServices from '../services/auth'
 
 <style>
 
@@ -19,6 +20,8 @@ function Signup() {
             password
         }
         console.log(user)
+
+        authServices.signup(user)
         setName('')
         setEmail('')
         setPassword('')
