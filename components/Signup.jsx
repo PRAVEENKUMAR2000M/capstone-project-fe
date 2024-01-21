@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import authServices from '../services/auth'
+import { Link } from 'react-router-dom'
 
 <style>
 
@@ -71,10 +72,12 @@ function Signup() {
                       <div>
                           <button type="submit" className="signupbtn">Sign Up</button>
                       </div>
-                      <div className="clearfix">
+                      {/* <div className="clearfix">
                           <button type="button" className="cancelbtn">Cancel</button>
+                      </div> */}
+                      <div className='para-2'>
+                      <p> Already Register ? <Link to={'/'}>Login</Link> </p>
                       </div>
-                      
                   </div>
               </form>
           </div>
