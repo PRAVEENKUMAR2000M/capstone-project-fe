@@ -1,0 +1,82 @@
+{
+    "category": [
+        {
+            "id": 1,
+            "title": "Zen-Class Doubt"
+        },
+        {
+            "id": 2,
+            "title": "Placement Related"
+        },
+        {
+            "id": 3,
+            "title": "coordination Related"
+        },
+        {
+            "id": 4,
+            "title": "Pre-Bootcamp Related"
+        }
+    ],
+    "language": [
+        {
+            "id": 1,
+            "title": "English"
+        },
+        {
+            "id": 2,
+            "title": "Hindi"
+        },
+        {
+            "id": 3,
+            "title": "Tamil"
+        }
+    ],
+
+    "subcategory":[
+        {
+            "id":1,
+            "title":"Zen-Class Doubt",
+            "subtitle": [
+                "Task",
+                "Webcode",
+                "ClassTopic",
+                "Webkata",
+                "Codekata",
+                "Assessment"
+            ]
+        },
+
+        {
+            "id":2,
+            "title":"Placement Related",
+            "subtitle":[
+                "Company Info",
+                "Completion Certificate",
+                "Portfolio"
+            ]
+        },
+        {
+            "id":3,
+            "title":"coordination Related",
+            "subtitle": [
+                "Session Timming",
+                "Session Joining Link",
+                "Session Feedback",
+                "Completion Certificate",
+                "Payment"
+            ]
+        },
+        {
+            "id":4,
+            "title":"Pre-Bootcamp Related",
+            "subtitle":[
+                "Session",
+                "Payment",
+                "Codekata",
+                "Webkata",
+                "Task",
+                "Others"
+            ]
+        }
+    ]
+}
