@@ -1,10 +1,10 @@
 import instance from "./instance"
 
 
-const createQuery = async () => {
+const createQuery = async (payload) => {
     try {
         console.log('query creating')
-        const response = await instance.protectedInstance.post('/query/createQuery')
+        const response = await instance.protectedInstance.post('/query/createQuery', payload)
         if (response.data.createQuery) {
             return response.data.createQuery
         } else {

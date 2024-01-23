@@ -15,18 +15,18 @@ function NewQuery() {
     const [querydescription, setQuerydescription] = useState('')
     const [storecategory, setStorecategory] = useState('')
 
-    const handleNewQueryForm = (event) => {
+    const handleNewQueryForm = async(event) => {
         event.preventDefault()
 
         const newQuery = {
             category,
-            subcategory,
+            subcategory:subcategory.title,
             voicecommunication,
             querytitle,
             querydescription,
         }
         console.log(newQuery)
-        createQuery(newQuery)
+        await createQuery(newQuery)
     }
 
 
