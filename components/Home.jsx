@@ -6,6 +6,7 @@ import authServices from '../services/auth'
 function Home() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
     const navigate = useNavigate()
     // const dispatch = useDispatch()
 
@@ -18,10 +19,6 @@ function Home() {
         }
         console.log(user)
        await authServices.signin(user)
-        // dispatch({
-        //     type: 'SET_CANDIDATE',
-        //     payload: candidate
-        // })
         setEmail('')
         setPassword('')
         navigate('/createquery')

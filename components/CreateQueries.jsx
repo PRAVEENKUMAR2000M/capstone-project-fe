@@ -1,47 +1,59 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import getCandidate from '../services/candidate'
 import createQuery from '../services/createQuery'
 import { AppBar, Toolbar, Box } from '@mui/material'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useLocation } from 'react-router-dom'
 
 
 
 
 function CreateQueries() {
 
+  const location = useLocation()
+
+
+  const [queryData, setQueryData] = useState([]);
+
+  useEffect(() => {
+    const initialData = location.state?.newQuery || {}
+    // Update queryData when initialData changes (e.g., when submitting a new query)
+    setQueryData((prevData) => [...prevData, { ...initialData }]);
+  }, [location?.state?.newQuery]);
+
 
   const queryFuction = () => {
-   navigate('/newQuery')
- }
+    navigate('/newQuery')
+  }
   const user = useSelector(state => state.candidate)
   console.log(user)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   useEffect(() => {
-   getCandidate()
+    getCandidate()
       .then(candidate => {
         console.log(candidate)
-        
+
         const candidateObj = {
           name: candidate.name,
           email: candidate.email
         }
         dispatch({
           type: 'SET_CANDIDATE',
-          payload:candidateObj
+          payload: candidateObj
         })
       })
       .catch(error => {
-      console.log(error)
+        console.log(error)
       })
-    
+
     // if (!candidate.candidate) {
     //   navigate('/signin')
     // }
-  },[])
+  }, [])
 
   useEffect(() => {
     createQuery()
@@ -52,6 +64,8 @@ function CreateQueries() {
         console.log(error)
       })
   }, [])
+
+
   return (
     <div>
       <AppBar>
@@ -66,9 +80,31 @@ function CreateQueries() {
         </Toolbar>
       </AppBar>
       <div className='btn-c'>
-        <button className='btn-q'onClick={queryFuction}>Create Query</button>
+        <button className='btn-q' onClick={queryFuction}>Create Query</button>
+      </div>
+
+
+      <div className='query-title'>
+        <h2>Submitted Queries:</h2>
+      </div>
+
+      <div>
+        {queryData.map((query) => (
+          <Link key={query.id} to={('/viewQuery')} style={{ textDecoration: 'none' }} >
+            <div className='query-box'>
+              <h3>Query ID: {query.id}</h3>
+              <div>Category: {query.category}</div>
+              <div>Subcategory: {query.subcategory}</div>
+              <div>Voice Communication Language: {query.voicecommunication}</div>
+              <div>Query Title: {query.querytitle}</div>
+              <div>Query Description: {query.querydescription}</div>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
+
+
 
   )
 }

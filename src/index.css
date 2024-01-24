@@ -85,3 +85,25 @@ form input {
     border-radius: 8px;
     background-color: rgb(37, 127, 205);
 }
+
+.query-title{
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+/* border: '1px solid #ccc',
+padding: '10px',
+margin: '10px',
+cursor: 'pointer' */
+
+.query-box{
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.view-query{
+    margin-top: 100px;
+}

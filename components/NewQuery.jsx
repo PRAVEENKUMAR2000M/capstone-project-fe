@@ -3,6 +3,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useState } from 'react';
 import data from '../db.json'
 import createQuery from '../services/createQuery'
+import { useNavigate } from 'react-router-dom';
 
 
 function NewQuery() {
@@ -14,19 +15,30 @@ function NewQuery() {
     const [querytitle, setQueryTitle] = useState('')
     const [querydescription, setQuerydescription] = useState('')
     const [storecategory, setStorecategory] = useState('')
+    const navigate = useNavigate()
 
-    const handleNewQueryForm = async(event) => {
+    const handleNewQueryForm = async (event) => {
         event.preventDefault()
 
         const newQuery = {
             category,
-            subcategory:subcategory.title,
+            subcategory: storecategory,
             voicecommunication,
             querytitle,
             querydescription,
         }
         console.log(newQuery)
+        
         await createQuery(newQuery)
+
+        setCategory('')
+        setSubcategory('')
+        setVoicecommunication('')
+        setQueryTitle('')
+        setQuerydescription('')
+
+        navigate('/createquery', { state: { newQuery } })
+
     }
 
 
@@ -52,6 +64,10 @@ function NewQuery() {
         // setSubcategory(event.target.value)
         setStorecategory(event.target.value)
         // console.log(storecategory)
+    }
+
+    const handleCancel = async() => {
+       await navigate('/createquery')
     }
 
 
@@ -129,9 +145,9 @@ function NewQuery() {
                             />
                         </div>
                         <div className='button-row'>
-                            <button type='submit' className='cancel-btn1'>cancel</button>
+                            <button type='button' className='cancel-btn1' onClick={handleCancel}>cancel</button>
 
-                            <button type='submit' className='create-btn1'>create</button>
+                            <button type='submit' className='create-btn1'>create</button>  
                         </div>
                     </div>
                 </form>
