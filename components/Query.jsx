@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import queryId from '../services/queryId';
 import getQuery from '../services/getQuery';
 import { useSearchParams } from 'react-router-dom';
+import { Margin } from '@mui/icons-material';
 
 
 function Query() {
@@ -12,35 +13,46 @@ function Query() {
     // console.log(query)
 
     const [query, setQuery] = useState([])
-    console.log(query)
+    // console.log(query)
     const [queryid, setQueryid] = useState([])
-    // console.log(queryid)
-    // const [storequery, setStorequery] = useState('')
+    console.log(queryid)
+    const [storequery, setStorequery] = useState('')
+    console.log(storequery)
+
+    useEffect(() => {
+        getQuery()
+            .then(candidateQueries => {
+                setQuery(candidateQueries)
+            })
+    }, [])
+
+
+    // let [params] = useSearchParams()
+
+    // useEffect(() => {
+    //     getQuery(params.get('id'))
+    //         .then(candidate => {
+    //             setQuery(candidate)
+    //     })
+    // }, [])
+
 
     let [params] = useSearchParams()
 
     useEffect(() => {
-        getQuery(params.get('id'))
-            .then(candidate => {
-                setQuery(candidate)
-        })
+        queryId(params.get('id'))
+            .then(queries => {
+                setQueryid(queries)
+            })
     }, [])
 
+    useEffect(() => {
+        const user = query.find((subquery) => subquery._id === queryid._id);
+        if (user) {
+            setStorequery([user]);
+        }
+    }, [query, queryid]);
 
-    // useEffect(() => {
-    //     getQuery()
-    //         .then(res => res.json())
-    //         .then(data => console.log(data))
-    // }, [])
-
-    // {data && data (user => console.log(user))}
-
-    // useEffect(() => {
-    //     queryId()
-    //         .then(queries => {
-    //             setQueryid(queries)
-    //         })
-    // }, [])
    
     return (
         <div>
@@ -56,6 +68,20 @@ function Query() {
                     </Toolbar>
                 </AppBar>
             </div>
+            <div className='setquery'>
+                {storequery && storequery.map((str) => (
+                    <div key={str.id}>
+                        <h6>QueryID: {str._id}</h6>
+                        <h6>Category: {str.category}</h6>
+                        <h6>Subcategory: {str.subcategory}</h6>
+                        <h6>Voice Communication Language: {str.voicecommunication}</h6>
+                        <h6>Query Title: {str.querytitle}</h6>
+                        <h6>Query Description: {str.querydescription}</h6>
+                    </div>
+                ))}
+            </div>
+           
+
             {/* <div>
                 {query && query.map((queryItem) => (
                     <h3 key={queryItem._id}>

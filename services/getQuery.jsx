@@ -1,13 +1,13 @@
 import instance from "./instance";
 
 
-const getQuery = async (queryId) => {
+const getQuery = async () => {
     try {
         console.log('data fetching')
-        const response = await instance.protectedInstance.get(`/query/Queries?queryId=${queryId}`)
+        const response = await instance.protectedInstance.get('/query/getQuery')
         console.log(response)
         
-            return response.data
+        return response.data.candidateQueries
         
     } catch (error) {
         console.log(error)
