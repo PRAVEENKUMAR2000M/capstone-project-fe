@@ -17,10 +17,14 @@ function Home() {
             password
         }
         console.log(user)
-       await authServices.signin(user)
-        setEmail('')
-        setPassword('')
-        navigate('/createquery')
+        let auth = await authServices.signin(user)
+        if (auth.message!='Incorrect password') {
+            console.log(auth)
+            setEmail('')
+            setPassword('')
+            navigate('/createquery')
+        }
+        
     }
     return (
         <div>

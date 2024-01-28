@@ -9,7 +9,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useLocation } from 'react-router-dom'
 
 
-function CreateQueries () {
+function CreateQueries() {
 
 
   const location = useLocation()
@@ -70,13 +70,14 @@ function CreateQueries () {
 
   useEffect(() => {
     getQuery()
-      .then(candidate => {
+      .then(candidateQueries => {
+        console.log(candidateQueries)
         dispatch({
           type: 'SET_SAVEQUERY',
-          payload: candidate
+          payload: candidateQueries
         })
-        setSavequery(candidate)
-    })
+        setSavequery(candidateQueries)
+      })
   }, [dispatch])
 
 
@@ -104,14 +105,14 @@ function CreateQueries () {
 
       <div>
         {savequery.map((query) => (
-          <Link key={savequery.id} to={('/viewQuery')} style={{ textDecoration: 'none' }} >
-          <div key={query._id} className='query-box'>
-            <h3>Query ID: {query._id}</h3>
-            <div>Category: {query.category}</div>
-            <div>Subcategory: {query.subcategory}</div>
-            <div>Voice Communication Language: {query.voicecommunication}</div>
-            <div>Query Title: {query.querytitle}</div>
-            <div>Query Description: {query.querydescription}</div>
+          <Link key={savequery.id} to={(`/viewQuery?id=${query._id}`)} style={{ textDecoration: 'none', color:'black' }} >
+            <div key={query._id} className='query-box'>
+              <h3>Query ID: {query._id}</h3>
+              <div>Category: {query.category}</div>
+              <div>Subcategory: {query.subcategory}</div>
+              <div>Voice Communication Language: {query.voicecommunication}</div>
+              <div>Query Title: {query.querytitle}</div>
+              <div>Query Description: {query.querydescription}</div>
             </div>
           </Link>
         ))}
