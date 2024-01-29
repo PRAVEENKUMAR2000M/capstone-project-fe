@@ -6,6 +6,7 @@ import queryId from '../services/queryId';
 import getQuery from '../services/getQuery';
 import { useSearchParams } from 'react-router-dom';
 import { Margin } from '@mui/icons-material';
+import deleteQuery from '../services/deleteQuery';
 
 
 function Query() {
@@ -27,16 +28,6 @@ function Query() {
     }, [])
 
 
-    // let [params] = useSearchParams()
-
-    // useEffect(() => {
-    //     getQuery(params.get('id'))
-    //         .then(candidate => {
-    //             setQuery(candidate)
-    //     })
-    // }, [])
-
-
     let [params] = useSearchParams()
 
     useEffect(() => {
@@ -53,7 +44,11 @@ function Query() {
         }
     }, [query, queryid]);
 
-   
+    useEffect(() => {
+
+    }, [])
+
+
     return (
         <div>
             <div>
@@ -80,15 +75,14 @@ function Query() {
                     </div>
                 ))}
             </div>
-           
-
-            {/* <div>
-                {query && query.map((queryItem) => (
-                    <h3 key={queryItem._id}>
-                        Query ID: {queryItem._id}, Category: {queryItem.category}, Subcategory: {queryItem.subcategory}, Voice Communication Language: {queryItem.voicecommunication}, Query Title: {queryItem.querytitle}, Query Description: {queryItem.querydescription}
-                    </h3>
-                ))}
-            </div> */}
+            <div>
+                <button onClick={() => {
+                    deleteQuery(params.get('id'))
+                        .then(deleteQuery => {
+                            console.log(deleteQuery)
+                        })
+                }}>delete</button>
+            </div>
         </div>
     );
 }

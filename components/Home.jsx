@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react'
 import '../src/App.css'
 import { Link, useNavigate } from 'react-router-dom'
 import authServices from '../services/auth'
+
 
 function Home() {
     const [email, setEmail] = useState('')
@@ -9,7 +11,7 @@ function Home() {
     const navigate = useNavigate()
     // const dispatch = useDispatch()
 
-    const handleSignin = async(event) => {
+    const handleSignin = async (event) => {
         event.preventDefault()
 
         const user = {
@@ -18,13 +20,13 @@ function Home() {
         }
         console.log(user)
         let auth = await authServices.signin(user)
-        if (auth.message!='Incorrect password') {
+        if (auth.message != 'Incorrect password') {
             console.log(auth)
             setEmail('')
             setPassword('')
             navigate('/createquery')
         }
-        
+
     }
     return (
         <div>

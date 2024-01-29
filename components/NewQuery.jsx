@@ -15,6 +15,8 @@ function NewQuery() {
     const [querytitle, setQueryTitle] = useState('')
     const [querydescription, setQuerydescription] = useState('')
     const [storecategory, setStorecategory] = useState('')
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // Assume the user is initially logged in
+
     const navigate = useNavigate()
 
     const handleNewQueryForm = async (event) => {
@@ -70,6 +72,10 @@ function NewQuery() {
        await navigate('/createquery')
     }
 
+    const handleLogout = () => {
+        sessionStorage.removeItem('token')
+        navigate('/')
+    }
 
     return (
         <div>
@@ -80,8 +86,13 @@ function NewQuery() {
                             <h2>Create Query</h2>
                             {/* <h4 className='icon1'>{user.candidate.name}</h4> */}
                             <Box width={'20%'}>
-                                <AccountCircleIcon className='icon2' />
+                                <AccountCircleIcon className='icon2' onClick={() => setIsLoggedIn(!isLoggedIn)} />
+                                {isLoggedIn && <span onClick={() => handleLogout()}><select className='logout-btn3'>
+                                    <option>logout</option>
+                                    <option>cancel</option>
+                                </select></span>}
                             </Box>
+
                         </div>
                     </Toolbar>
                 </AppBar>

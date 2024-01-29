@@ -105,7 +105,7 @@ function CreateQueries() {
 
       <div>
         {savequery.map((query) => (
-          <Link key={savequery.id} to={(`/viewQuery?id=${query._id}`)} style={{ textDecoration: 'none', color:'black' }} >
+          <Link key={savequery.id} to={(`/viewQuery?id=${query._id}`)} style={{ textDecoration: 'none', color: 'black' }} >
             <div key={query._id} className='query-box'>
               <h3>Query ID: {query._id}</h3>
               <div>Category: {query.category}</div>
