@@ -86,7 +86,7 @@ form input {
     background-color: rgb(37, 127, 205);
 }
 
-.query-title{
+.query-title {
     margin-top: 50px;
     margin-left: 30px;
 }
@@ -96,22 +96,127 @@ padding: '10px',
 margin: '10px',
 cursor: 'pointer' */
 
-.query-box{
+.query-box {
     border: 1px solid #ccc;
     padding: 10px;
     margin: 10px;
     cursor: pointer;
     margin-left: 30px;
+
+
 }
 
-.view-query{
+
+
+.view-query {
     margin-top: 100px;
 }
 
-.setquery{
+.setquery {
     margin-top: 100px;
+
 }
 
-.logout-btn3{
+.logout-btn3 {
     margin-left: 1450px;
+}
+
+/* .msg-input{
+    border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        cursor: pointer;
+        margin-left: 30px;  
+        height: 200px;
+        align-items: center;
+} */
+
+.delete-btn {
+    background-color: rgb(37, 127, 205);
+    border-radius: 5px;
+    width: 80px;
+    position: absolute;
+    top: 100px;
+    left: 60%;
+}
+
+.heading {
+    margin-left: 150px;
+}
+
+.queryid-1 {
+    margin-top: 30px;
+}
+
+.queryid-2 {}
+
+.category-1 {
+    margin-top: 20px;
+}
+
+.subcategory-1 {
+    margin-top: -130px;
+    margin-left: 400px;
+}
+
+.subcategory-2 {
+    margin-top: 0px;
+    margin-left: 400px;
+}
+
+.voice-1 {
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.voice-2 {
+    margin-left: 400px;
+}
+
+.description-1 {
+    margin-top: -50px;
+    margin-left: 400px;
+}
+
+.description-2 {
+    margin-left: 400px;
+}
+
+.title-1 {
+    margin-top: 20px;
+}
+
+.query-2 {
+    margin-left: 500px;
+}
+
+.back-btn-2 {
+    background-color: rgb(37, 127, 205);
+    border-radius: 5px;
+    width: 80px;
+    position: absolute;
+    top: 100px;
+    margin-left: 20px;
+
+}
+
+.status-heading {
+    margin-left: 500px;
+    position: absolute;
+    top: 375px;
+}
+
+.status-option {
+    margin-left: 580px;
+    position: absolute;
+    top: 375px;
+}
+
+.save-btn {
+    margin-left: 500px;
+    position: absolute;
+    top: 420px;
+    background-color: rgb(37, 127, 205);
+    width: 70px;
+    border-radius: 5px;
 }
