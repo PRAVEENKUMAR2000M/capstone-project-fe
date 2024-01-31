@@ -141,7 +141,7 @@ cursor: 'pointer' */
 }
 
 .heading {
-    margin-left: 150px;
+    margin-left: 200px;
 }
 
 .queryid-1 {
@@ -151,7 +151,7 @@ cursor: 'pointer' */
 .queryid-2 {}
 
 .category-1 {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .subcategory-1 {
@@ -183,7 +183,7 @@ cursor: 'pointer' */
 }
 
 .title-1 {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .query-2 {
@@ -203,20 +203,32 @@ cursor: 'pointer' */
 .status-heading {
     margin-left: 500px;
     position: absolute;
-    top: 375px;
+    top: 420px;
 }
 
 .status-option {
-    margin-left: 580px;
+    margin-left: 600px;
     position: absolute;
-    top: 375px;
+    top: 420px;
 }
 
 .save-btn {
     margin-left: 500px;
     position: absolute;
-    top: 420px;
+    top: 470px;
     background-color: rgb(37, 127, 205);
     width: 70px;
     border-radius: 5px;
+}
+
+.status-1 {
+    margin-left: 400px;
+    position: absolute;
+    top: 440px;
+}
+
+.status-hd {
+    margin-left: 400px;
+    position: absolute;
+    top: 410px;
 }
