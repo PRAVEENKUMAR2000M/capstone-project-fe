@@ -113,7 +113,7 @@ function Query() {
                 </div>
                 <div className='setquery'>
                     {storequery && storequery.map((str) => (
-                        <div key={str.id} className='query-2'>
+                        <div key={str._id} className='query-2'>
                             <h5 className='status-hd'>Current Status:</h5>
                             <h6 className='status-1'>{str.status}</h6>
                             <h3 className='heading'>{str.querydescription}</h3>

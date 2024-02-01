@@ -23,7 +23,6 @@ function CreateQueries() {
 
   // useEffect(() => {
   //   const initialData = location.state?.newQuery || {}
-  //   // Update queryData when initialData changes (e.g., when submitting a new query)
   //   setQueryData((prevData) => [...prevData, { ...initialData }]);
   // }, [location?.state?.newQuery]);
 
@@ -116,7 +115,7 @@ function CreateQueries() {
       <div>
         {savequery.map((query) => {
 console.log(query)
-         return <Link key={savequery._id} to={(`/viewQuery?id=${query._id}`)} style={{ textDecoration: 'none', color: 'black' }} >
+         return <Link key={query._id} to={(`/viewQuery?id=${query._id}`)} style={{ textDecoration: 'none', color: 'black' }} >
             <div key={query._id} className='query-box'>
               <h3>Query ID: {query._id}</h3>
               <div>Category: {query.category}</div>
