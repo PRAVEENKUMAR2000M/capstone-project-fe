@@ -17,7 +17,7 @@ function CreateQueries() {
 
   // const [queryData, setQueryData] = useState([]);
   const [savequery, setSavequery] = useState([])
-  // console.log(savequery)
+  console.log(savequery)
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate()
 
@@ -52,9 +52,6 @@ function CreateQueries() {
         console.log(error)
       })
 
-    // if (!candidate.candidate) {
-    //   navigate('/signin')
-    // }
   }, [])
 
   // useEffect(() => {
@@ -116,7 +113,7 @@ function CreateQueries() {
         {savequery.map((query) => {
 console.log(query)
          return <Link key={query._id} to={(`/viewQuery?id=${query._id}`)} style={{ textDecoration: 'none', color: 'black' }} >
-            <div key={query._id} className='query-box'>
+           <div key={query._id} className='query-box'>
               <h3>Query ID: {query._id}</h3>
               <div>Category: {query.category}</div>
               <div>Subcategory: {query.subcategory}</div>

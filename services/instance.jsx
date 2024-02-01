@@ -13,7 +13,7 @@ const authInstance = axios.create({
 const protectedInstance = axios.create({
     baseURL: baseURL,
     headers: {
-        'content-type':'application/json'
+        'content-type': 'application/json'
     }
 })
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import authServices from '../services/auth'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 <style>
 
@@ -11,6 +12,7 @@ function Signup() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const navigate = useNavigate()
 
     const handleSignup = (event) => {
         event.preventDefault()
@@ -27,16 +29,18 @@ function Signup() {
         setEmail('')
         setPassword('')
     }
+
+    const handleCancel = (event) => {
+        navigate('/')
+    }
   return (
       <div>
           <h1 className='heading'>welcome to signup form </h1>
           <div>
               <form onSubmit={handleSignup}>
-                  <div>
-                      <h3 className='heading'>Register Here</h3>
-                      <p className='heading'>Please fill in this form to create an account.</p>
-                      <hr />
-                      <div className='lb-signup'>
+                      
+                      <div>
+                      <div className='lb-name'>
                           <label><b>Name</b></label>
                       </div>
                       <div>
@@ -47,7 +51,7 @@ function Signup() {
                               onChange={(event)=> setName(event.target.value)}
                           />
                       </div>
-                      <div className='lb-signup'>
+                      <div className='lb-email'>
                           <label><b>Email</b></label>
                       </div>
                       <div>
@@ -58,7 +62,7 @@ function Signup() {
                               onChange={(event)=> setEmail(event.target.value)}
                           />
                       </div>
-                      <div className='lb-signup'>
+                      <div className='lb-password'>
                           <label><b>Password</b></label>
                       </div>
                       <div>
@@ -72,12 +76,12 @@ function Signup() {
                       <div>
                           <button type="submit" className="signupbtn">Sign Up</button>
                       </div>
-                      {/* <div className="clearfix">
-                          <button type="button" className="cancelbtn">Cancel</button>
-                      </div> */}
+                      <div className="clearfix">
+                          <button type="button" className="cancelbtn" onClick={handleCancel}>Cancel</button>
+                      </div>
                       <div className='para-2'>
                       <p> Already Register ? <Link to={'/'}>Login</Link> </p>
-                      </div>
+                          </div>
                   </div>
               </form>
           </div>
