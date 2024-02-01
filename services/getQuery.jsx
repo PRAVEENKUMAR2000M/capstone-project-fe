@@ -1,17 +1,21 @@
 import instance from "./instance";
 
-
-const getQuery = async () => {
+const getQuery = async (candidateID) => {
     try {
-        console.log('data fetching')
-        const response = await instance.protectedInstance.get('/query/getQuery')
-        console.log(response)
-        
-        return response.data.candidateQueries
-        
+        console.log('data fetching');
+
+        const response = await instance.protectedInstance.get('/query/getQuery', {
+            params: {
+                candidateID: candidateID
+            }
+        });
+
+        console.log(response);
+        return response.data.candidateQueries;
+
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 }
 
-export default getQuery
+export default getQuery;

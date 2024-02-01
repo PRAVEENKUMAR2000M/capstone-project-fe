@@ -15,7 +15,7 @@ function NewQuery() {
     const [querytitle, setQueryTitle] = useState('')
     const [querydescription, setQuerydescription] = useState('')
     const [storecategory, setStorecategory] = useState('')
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // Assume the user is initially logged in
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const navigate = useNavigate()
 
@@ -39,7 +39,7 @@ function NewQuery() {
         setQueryTitle('')
         setQuerydescription('')
 
-        navigate('/createquery', { state: { newQuery } })
+        navigate('/createquery')
 
     }
 

@@ -10,7 +10,7 @@ const deleteQuery = async (queryId) => {
 
 export const  updateQuery = async (queryId, payload) => {
     console.log('query deleting')
-    const response = await instance.protectedInstance.put(`/query/deletequery/${queryId}`, payload)
+    const response = await instance.protectedInstance.put(`/query/updatequery/${queryId}`, payload)
     if (response.data.updateQuery) {
         return response.data.updateQuery
     }

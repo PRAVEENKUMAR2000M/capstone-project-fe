@@ -12,12 +12,14 @@ import { useLocation } from 'react-router-dom'
 function CreateQueries() {
 
 
-  const location = useLocation()
+  // const location = useLocation()
 
 
   // const [queryData, setQueryData] = useState([]);
   const [savequery, setSavequery] = useState([])
-  console.log(savequery)
+  // console.log(savequery)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate()
 
   // useEffect(() => {
   //   const initialData = location.state?.newQuery || {}
@@ -31,7 +33,6 @@ function CreateQueries() {
   }
   const user = useSelector(state => state.candidate)
   console.log(user)
-  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -71,14 +72,19 @@ function CreateQueries() {
   useEffect(() => {
     getQuery()
       .then(candidateQueries => {
+        setSavequery(candidateQueries)
         console.log(candidateQueries)
         dispatch({
           type: 'SET_SAVEQUERY',
           payload: candidateQueries
         })
-        setSavequery(candidateQueries)
       })
   }, [dispatch])
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('token')
+    navigate('/')
+  }
 
 
   return (
@@ -89,7 +95,11 @@ function CreateQueries() {
             <h2>My Queries</h2>
             <h4 className='icon1'>{user.candidate.name}</h4>
             <Box width={'20%'}>
-              <AccountCircleIcon className='icon2' />
+              <AccountCircleIcon className='icon2' onClick={() => setIsLoggedIn(!isLoggedIn)} />
+              {isLoggedIn && <span onClick={() => handleLogout()}><select className='logout-btn3'>
+                <option>logout</option>
+                <option>cancel</option>
+              </select></span>}
             </Box>
           </div>
         </Toolbar>
@@ -104,8 +114,9 @@ function CreateQueries() {
       </div>
 
       <div>
-        {savequery.map((query) => (
-          <Link key={savequery.id} to={(`/viewQuery?id=${query._id}`)} style={{ textDecoration: 'none', color: 'black' }} >
+        {savequery.map((query) => {
+console.log(query)
+         return <Link key={savequery._id} to={(`/viewQuery?id=${query._id}`)} style={{ textDecoration: 'none', color: 'black' }} >
             <div key={query._id} className='query-box'>
               <h3>Query ID: {query._id}</h3>
               <div>Category: {query.category}</div>
@@ -115,7 +126,7 @@ function CreateQueries() {
               <div>Query Description: {query.querydescription}</div>
             </div>
           </Link>
-        ))}
+        })}
       </div>
 
     </div>
