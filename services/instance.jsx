@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const baseURL = 'http://localhost:3001/api'
+const baseURL = 'https://capstone-be-nq1i.onrender.com/api'
 
 
 const authInstance = axios.create({
