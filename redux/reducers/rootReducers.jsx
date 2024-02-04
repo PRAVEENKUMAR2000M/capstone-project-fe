@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import candidateReducer from "./candidateReducers";
-import createqueryReducer from "../CreateQueryReducer";
+import createqueryReducer from "../createqueryReducer";
 import queryReducer from "./queryReducer";
 
 
